@@ -26,6 +26,9 @@ namespace csv {
                 iterator() : m_bad(true),m_currentDirty(true) {
                 }
 
+                iterator(std::istream& in):iterator(in, boost::escaped_list_separator<char>())
+                {}
+
                 iterator(std::istream& in, const boost::escaped_list_separator<char>& separator )
                     : m_bad(false), m_in(&in),separator(separator), m_currentDirty(true) 
                 {
